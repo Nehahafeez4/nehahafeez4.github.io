@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Getting Started with Chart JS </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .chartMenu {
+
+      font-size: 20px;
+      background-color: rgb(251, 224, 175);
+      border: 1px solid orange;
+      margin-top: 10px;
+
+      color: rgba(255, 165, 0);
+      text-align: center;
+      justify-content: center;
+    }
+
+
+    h5 {
+      color: rgb(15, 15, 15);
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      background: rgba(255, 185, 80, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chartBox {
+      width: 1000px;
+
+      box-shadow: 5px 10px 2px #7a7a78;
+      height: 600px;
+      background: rgb(247, 244, 244);
+
+
+    }
+
+    #btn {
+      font-size: 13px;
+
+      padding: 5px;
+      margin-top: 15px;
+      background-color: rgba(255, 165, 0);
+      border: 1px solid rgb(7, 7, 7);
+    }
+
+    .languages {
+      width: 98px;
+    }
+
+    @media(max-width:974px) {
+      .chartBox {
+        width: 100vw;
+
+        box-shadow: 5px 10px 2px #7a7a78;
+        height: 600px;
+        background: rgb(247, 244, 244);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chartMenu">
+    <p>
+    <h1>Worlds Countries Data</h1>
+    <h5>Currently we have 250 countries</h5>
+    </p>
+    <div class="containerBtn">
+
+    </div>
+    <button id="btn" class="population">POPULATION</button>
+    <form method="get" action="languages.html"> <button id="btn" type="submit" class="languages">LANGUAGE</button>
+
+    </form>
+
+
+    <h5>
+      <p>10 most <span class="text">populated countries in the world </span></p>
+    </h5>
+  </div>
+  </div>
+  <div class="chartCard">
+    <div class="chartBox">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <div class="grid">
+
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let textBox = document.getElementsByClassName("text");
+    textBox.innerText = "spoken languages in the world"
+    // setup 
+    const data = {
+      labels: ['world', 'japan', 'india', 'russia', 'china', 'india', 'USA', 'nigeria', 'uganda', 'germany', 'china'],
+      datasets: [{
+        label: 'Population',
+        data: [700, 650, 500, 450, 300, 250, 150, 100, 70, 50, 30, 10, 5],
+        backgroundColor: [
+          'rgba(255,168,0)'
+        ],
+
+        borderWidth: 1
+      }]
+    };
+
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        indexAxis: 'y',
+        position: 'right',
+        scales: {
+          y: {
+            beginAtZero: true
+
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    let sortBtnn = document.getElementsByClassName("sortBtnn")
+    sortBtnn.addEventListener("click", function () {
+      console.log(result.sort())
+    })
+    sortBtnn.addEventListener("dblclick", function () {
+      console.log(result.reverse())
+
+    })
+
+
+
+  </script>
+
+</body>
+
+</html>
