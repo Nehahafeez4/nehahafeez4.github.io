@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Getting Started with Chart JS </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .chartMenu {
+      margin-top: 40px;
+      font-size: 20px;
+      background-color: rgb(242, 200, 253);
+      border: 1px solid orange;
+      margin-top: 10px;
+
+      color: rgb(248, 243, 248);
+      text-align: center;
+      justify-content: center;
+      padding: 20px;
+
+    }
+
+
+    h5 {
+      color: rgb(15, 15, 15);
+      font-family: 'Times New Roman', Times, serif;
+    }
+
+    .chartCard {
+      width: 100vw;
+      height: calc(100vh - 40px);
+      background: rgba(255, 185, 80, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .chartBox {
+      width: 1000px;
+
+      box-shadow: 5px 10px 2px #7a7a78;
+      height: 600px;
+      background: rgb(247, 244, 244);
+
+
+    }
+
+    #btn {
+      font-size: 13px;
+
+      padding: 5px;
+      margin-top: 20px;
+      background-color: rgb(234, 170, 248);
+      border: 1px solid rgb(7, 7, 7);
+    }
+
+    .languages {
+      width: 98px;
+    }
+
+    h1 {
+      color: black;
+    }
+
+    @media(max-width:974px) {
+      .chartBox {
+        width: 100vw;
+
+        box-shadow: 5px 10px 2px #7a7a78;
+        height: 600px;
+        background: rgb(247, 244, 244);
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="chartMenu">
+    <p>
+    <h1>Worlds Countries Data</h1>
+    <h5>Currently we have 250 countries</h5>
+    </p>
+    <div class="containerBtn">
+
+    </div>
+    <button id="btn" class="population">POPULATION</button>
+    <form method="get" action="languages.html"> <button id="btn" type="submit" class="languages">LANGUAGE</button>
+
+    </form>
+
+
+    <h5>
+      <p>10 most <span class="text">populated countries in the world </span></p>
+    </h5>
+  </div>
+  </div>
+  <div class="chartCard">
+    <div class="chartBox">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <div class="grid">
+    helloooo
+  </div>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    let textBox = document.getElementsByClassName("text");
+    textBox.innerText = "spoken languages in the world"
+    // setup 
+    const data = {
+      labels: ['English', 'French', 'Urdu', 'Arabic', 'pashtu', 'greek', 'latin', 'farsi'],
+      datasets: [{
+        label: 'Languages',
+        data: [70, 65, 50, 45, 30, 25, 15, 10, 7, 5, 3, 1,],
+        backgroundColor: [
+          'rgb(249, 207, 246)'
+        ],
+
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'bar',
+      data,
+      options: {
+        indexAxis: 'y',
+        position: 'right',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+    console.log(textBox)
+  </script>
+
+</body>
+
+</html>
